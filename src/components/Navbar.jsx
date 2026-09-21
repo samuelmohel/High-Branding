@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowUpRight } from 'lucide-react';
+import { Menu, X, ArrowUpRight, Download } from 'lucide-react';
 import { companyInfo } from '../data/companyData';
 
-export default function Navbar({ onOpenQuoteModal }) {
+export default function Navbar({ onOpenQuoteModal, onOpenBrochureModal }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -17,6 +17,7 @@ export default function Navbar({ onOpenQuoteModal }) {
   const navLinks = [
     { label: 'Ethos', href: '#about' },
     { label: 'Services', href: '#services' },
+    { label: 'Featured Suites', href: '#featured-suites' },
     { label: 'Lookbook', href: '#lookbook' },
     { label: 'The Difference', href: '#why-us' },
     { label: 'Contact', href: '#contact' },
@@ -24,32 +25,26 @@ export default function Navbar({ onOpenQuoteModal }) {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white/95 backdrop-blur-md border-b border-gold-500/30 shadow-sm py-4'
-          : 'bg-white py-6 border-b border-neutral-100'
+          ? 'bg-white/95 backdrop-blur-md border-b border-gold-500/30 shadow-sm py-3.5'
+          : 'bg-white py-5 border-b border-neutral-100'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="flex items-center justify-between">
           
-          {/* Typographic Minimal Wordmark with Navy & Gold Accent */}
-          <a href="#" className="flex items-center space-x-3.5 group">
-            <div className="w-9 h-9 rounded-sm bg-navy-900 border border-gold-500/60 flex items-center justify-center text-gold-400 font-serif text-base font-bold shadow-sm group-hover:border-gold-400 transition-colors">
-              HB
-            </div>
-            <div className="flex flex-col">
-              <span className="font-serif text-xl sm:text-2xl tracking-wide text-navy-900 font-semibold leading-none group-hover:text-gold-600 transition-colors">
-                HIGH BRANDING
-              </span>
-              <span className="text-[9px] uppercase tracking-ultra text-neutral-500 font-sans mt-1">
-                Innovations Ltd • Lagos
-              </span>
-            </div>
+          {/* Official HBI Brand Logo */}
+          <a href="#" className="flex items-center space-x-3 group">
+            <img
+              src="/images/logo.png"
+              alt="High Branding Innovations Logo"
+              className="h-9 sm:h-11 w-auto object-contain transition-transform group-hover:scale-105"
+            />
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-9">
+          <nav className="hidden lg:flex items-center space-x-8">
             {navLinks.map((link) => (
               <a
                 key={link.label}
@@ -62,16 +57,26 @@ export default function Navbar({ onOpenQuoteModal }) {
             ))}
           </nav>
 
-          {/* Minimalist Inquire Action with Navy & Gold */}
-          <div className="hidden md:flex items-center space-x-5">
+          {/* Actions: Download Brochure + Inquire */}
+          <div className="hidden md:flex items-center space-x-4">
+            <button
+              onClick={onOpenBrochureModal}
+              className="px-4 py-2 rounded-full border border-gold-500/50 text-gold-700 hover:bg-gold-50 text-xs uppercase tracking-ultra font-medium transition-all flex items-center gap-1.5 shadow-sm"
+              title="Download official catalog brochure"
+            >
+              <Download className="w-3.5 h-3.5 text-gold-600" />
+              <span>Brochure</span>
+            </button>
+
             <a
-              href="https://wa.me/2348123456789"
+              href="https://wa.me/2347035737296"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs uppercase tracking-ultra text-neutral-600 hover:text-gold-600 transition-colors font-medium"
+              className="text-xs uppercase tracking-ultra text-neutral-600 hover:text-gold-600 transition-colors font-medium px-2"
             >
               WhatsApp
             </a>
+
             <button
               onClick={onOpenQuoteModal}
               className="btn-navy-gold px-5 py-2.5 rounded-full text-xs uppercase tracking-ultra font-medium transition-all flex items-center gap-1.5 shadow-sm"
@@ -82,7 +87,13 @@ export default function Navbar({ onOpenQuoteModal }) {
           </div>
 
           {/* Mobile Menu Trigger */}
-          <div className="md:hidden flex items-center">
+          <div className="lg:hidden flex items-center space-x-2">
+            <button
+              onClick={onOpenBrochureModal}
+              className="px-3 py-1.5 rounded-full border border-gold-500/50 text-gold-700 text-[10px] uppercase tracking-ultra font-medium"
+            >
+              Brochure
+            </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 text-navy-900 focus:outline-none"
@@ -97,8 +108,8 @@ export default function Navbar({ onOpenQuoteModal }) {
 
       {/* Mobile Menu Overlay */}
       {mobileMenuOpen && (
-        <div className="md:hidden fixed inset-x-0 top-[73px] bg-white border-b border-gold-500/30 px-8 py-8 shadow-xl">
-          <div className="flex flex-col space-y-5">
+        <div className="lg:hidden fixed inset-x-0 top-[69px] bg-white border-b border-gold-500/30 px-8 py-8 shadow-xl">
+          <div className="flex flex-col space-y-4">
             {navLinks.map((link) => (
               <a
                 key={link.label}
@@ -113,6 +124,16 @@ export default function Navbar({ onOpenQuoteModal }) {
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
+                  onOpenBrochureModal();
+                }}
+                className="w-full py-3 bg-paper-100 border border-gold-500/50 text-navy-900 text-xs uppercase tracking-ultra font-medium text-center rounded flex items-center justify-center gap-2"
+              >
+                <Download className="w-4 h-4 text-gold-600" />
+                <span>Download Corporate Brochure</span>
+              </button>
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
                   onOpenQuoteModal();
                 }}
                 className="w-full py-3 bg-navy-900 text-gold-200 border border-gold-500/40 text-xs uppercase tracking-ultra font-medium text-center rounded shadow-sm"
@@ -120,12 +141,12 @@ export default function Navbar({ onOpenQuoteModal }) {
                 Request Proposal
               </button>
               <a
-                href="https://wa.me/2348123456789"
+                href="https://wa.me/2347035737296"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full py-3 border border-neutral-300 text-neutral-800 text-xs uppercase tracking-ultra font-medium text-center rounded"
               >
-                Chat on WhatsApp
+                Chat on WhatsApp (07035737296)
               </a>
             </div>
           </div>

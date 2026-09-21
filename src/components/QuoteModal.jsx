@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, ArrowUpRight, CheckCircle2 } from 'lucide-react';
+import { X, ArrowUpRight, CheckCircle2, Send, MessageCircle } from 'lucide-react';
 import { companyInfo } from '../data/companyData';
 
 export default function QuoteModal({ isOpen, onClose }) {
@@ -18,6 +18,25 @@ export default function QuoteModal({ isOpen, onClose }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     setSubmitted(true);
+
+    const recipients = companyInfo.contact.emails.join(',');
+    const subject = encodeURIComponent(`Quick RFP Inquiry: ${formData.company || formData.name} - ${formData.service}`);
+    const body = encodeURIComponent(
+`Full Name: ${formData.name}
+Organization: ${formData.company}
+Work Email: ${formData.email}
+Phone / WhatsApp: ${formData.phone}
+Service: ${formData.service}
+
+Requirements:
+${formData.notes}
+
+---
+High Branding Innovations Ltd
+57, Bode Thomas Street, Surulere, Lagos`
+    );
+
+    window.location.href = `mailto:${recipients}?subject=${subject}&body=${body}`;
   };
 
   const handleReset = () => {
@@ -45,12 +64,23 @@ export default function QuoteModal({ isOpen, onClose }) {
               Inquiry Dispatched
             </h3>
             <p className="text-xs text-neutral-600 font-light max-w-xs mx-auto leading-relaxed">
-              Our enterprise advisory team in Lagos will review your brief and prepare a tailored proposal.
+              Dispatched directly to <strong className="text-navy-900">Info@, Elizabeth@, and Emmanuel@Hbranding.com</strong>.
             </p>
-            <div className="pt-4">
+            <div className="pt-4 flex flex-col gap-2">
+              <a
+                href={`https://wa.me/2347035737296?text=${encodeURIComponent(
+                  `Hello, I submitted an inquiry for ${formData.company || formData.name}: ${formData.service}`
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-navy-gold px-6 py-2.5 rounded-full text-xs uppercase tracking-ultra font-bold flex items-center justify-center gap-2"
+              >
+                <MessageCircle className="w-4 h-4 text-emerald-400" />
+                <span>Instant WhatsApp (07035737296)</span>
+              </a>
               <button
                 onClick={handleReset}
-                className="btn-navy-gold px-6 py-2.5 rounded-full text-xs uppercase tracking-ultra font-medium"
+                className="px-6 py-2 text-xs uppercase tracking-ultra font-medium text-neutral-500 hover:text-navy-900"
               >
                 Return to Site
               </button>
@@ -63,10 +93,10 @@ export default function QuoteModal({ isOpen, onClose }) {
                 Executive Inquiries
               </span>
               <h3 className="font-serif text-3xl text-navy-900">
-                Request Proposal
+                Request a Deal
               </h3>
               <p className="text-xs text-neutral-500 font-light mt-1">
-                High Branding Innovations Ltd • Lagos, Nigeria
+                57, Bode Thomas Street, Surulere, Lagos
               </p>
             </div>
 
@@ -80,7 +110,7 @@ export default function QuoteModal({ isOpen, onClose }) {
                   required
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  placeholder="e.g. Folake Alabi"
+                  placeholder="e.g. Samuel Alaba"
                   className="w-full px-3.5 py-2.5 bg-paper-100 border border-neutral-200 text-neutral-900 text-xs focus:outline-none focus:border-gold-500"
                 />
               </div>
@@ -124,13 +154,13 @@ export default function QuoteModal({ isOpen, onClose }) {
                     required
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    placeholder="+234 ..."
+                    placeholder="0703..."
                     className="w-full px-3.5 py-2.5 bg-paper-100 border border-neutral-200 text-neutral-900 text-xs focus:outline-none focus:border-gold-500"
                   />
                 </div>
                 <div>
                   <label className="block text-[10px] uppercase tracking-ultra text-navy-900 font-medium mb-1">
-                    Capability
+                    Requirement
                   </label>
                   <select
                     value={formData.service}
@@ -162,8 +192,8 @@ export default function QuoteModal({ isOpen, onClose }) {
                 type="submit"
                 className="w-full btn-navy-gold py-3.5 text-xs uppercase tracking-ultra font-bold flex items-center justify-center gap-2 mt-2 shadow-lg"
               >
-                <span>Submit RFP</span>
-                <ArrowUpRight className="w-4 h-4 text-gold-400" />
+                <Send className="w-3.5 h-3.5 text-gold-400" />
+                <span>Submit Deal Request</span>
               </button>
             </form>
           </div>

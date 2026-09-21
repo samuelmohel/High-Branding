@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowUpRight, MessageCircle, CheckCircle2, MapPin, Mail, Phone, Clock } from 'lucide-react';
+import { ArrowUpRight, MessageCircle, CheckCircle2, MapPin, Mail, Phone, Clock, Send } from 'lucide-react';
 import { companyInfo } from '../data/companyData';
 
 export default function ContactSection({ prefilledService }) {
@@ -23,6 +23,27 @@ export default function ContactSection({ prefilledService }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     setSubmitted(true);
+
+    // Construct multi-recipient mailto link to Info@, Elizabeth@, Emmanuel@
+    const recipients = companyInfo.contact.emails.join(',');
+    const subject = encodeURIComponent(`New Deal / Corporate RFQ: ${formData.company || formData.name} - ${formData.service}`);
+    const body = encodeURIComponent(
+`Full Name: ${formData.name}
+Organization: ${formData.company}
+Work Email: ${formData.email}
+Phone / WhatsApp: ${formData.phone}
+Service Requested: ${formData.service}
+
+Project Requirements & Scope:
+${formData.message}
+
+---
+Dispatched via High Branding Innovations Web Platform
+Corporate Office: 57, Bode Thomas Street, Surulere, Lagos`
+    );
+
+    // Open mail client targeting all 3 corporate emails
+    window.location.href = `mailto:${recipients}?subject=${subject}&body=${body}`;
   };
 
   return (
@@ -34,14 +55,14 @@ export default function ContactSection({ prefilledService }) {
           <div>
             <div className="inline-flex items-center gap-2 text-[11px] uppercase tracking-ultra text-gold-600 font-semibold mb-3">
               <span className="w-2 h-0.5 bg-gold-500"></span>
-              <span>Direct Inquiries</span>
+              <span>Direct Deal Consultation</span>
             </div>
             <h2 className="text-4xl sm:text-6xl font-serif text-navy-900 tracking-tight">
-              Get in Touch
+              Request a Deal
             </h2>
           </div>
           <p className="text-sm text-neutral-600 max-w-sm font-light">
-            Headquartered in Lagos, Nigeria. Serving visionary enterprises across Africa.
+            Headquartered at 57, Bode Thomas Street, Surulere, Lagos. Responding promptly to all enterprise inquiries.
           </p>
         </div>
 
@@ -53,9 +74,11 @@ export default function ContactSection({ prefilledService }) {
 
             <div className="border-b border-gold-500/30 pb-6">
               <div className="flex items-center space-x-3 mb-2">
-                <div className="w-8 h-8 rounded-sm bg-navy-800 border border-gold-400 text-gold-400 font-serif font-bold text-sm flex items-center justify-center">
-                  HB
-                </div>
+                <img
+                  src="/images/logo-monogram.png"
+                  alt="HBI Crest"
+                  className="w-8 h-8 object-contain bg-white rounded-sm p-0.5"
+                />
                 <h3 className="font-serif text-2xl text-white">
                   {companyInfo.name}
                 </h3>
@@ -69,42 +92,54 @@ export default function ContactSection({ prefilledService }) {
               <div className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-gold-400 flex-shrink-0 mt-0.5" />
                 <div>
-                  <span className="text-[10px] uppercase tracking-ultra text-gold-400 font-mono block mb-1">
-                    Corporate Headquarters
+                  <span className="text-[10px] uppercase tracking-ultra text-gold-400 font-mono block mb-1 font-bold">
+                    Physical Corporate Address
                   </span>
-                  <p className="text-white font-medium">{companyInfo.location}</p>
-                  <p className="text-xs text-slate-300 mt-0.5">{companyInfo.contact.address}</p>
+                  <p className="text-white font-medium">{companyInfo.contact.address}</p>
                 </div>
               </div>
 
               <div className="flex items-start gap-3">
                 <Mail className="w-4 h-4 text-gold-400 flex-shrink-0 mt-0.5" />
                 <div>
-                  <span className="text-[10px] uppercase tracking-ultra text-gold-400 font-mono block mb-1">
-                    Direct Correspondence
+                  <span className="text-[10px] uppercase tracking-ultra text-gold-400 font-mono block mb-1 font-bold">
+                    Direct Corporate Inboxes
                   </span>
-                  <a href={`mailto:${companyInfo.contact.email}`} className="text-white hover:text-gold-300 block font-medium transition-colors">
-                    {companyInfo.contact.email}
-                  </a>
+                  <ul className="space-y-1">
+                    {companyInfo.contact.emails.map((email) => (
+                      <li key={email}>
+                        <a
+                          href={`mailto:${email}`}
+                          className="text-slate-200 hover:text-gold-300 block transition-colors font-mono text-xs"
+                        >
+                          {email}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
 
               <div className="flex items-start gap-3">
                 <Phone className="w-4 h-4 text-gold-400 flex-shrink-0 mt-0.5" />
                 <div>
-                  <span className="text-[10px] uppercase tracking-ultra text-gold-400 font-mono block mb-1">
-                    Hotline
+                  <span className="text-[10px] uppercase tracking-ultra text-gold-400 font-mono block mb-1 font-bold">
+                    Direct Line & WhatsApp
                   </span>
-                  <a href="tel:+2348004444272" className="text-white hover:text-gold-300 text-xs block transition-colors">
-                    {companyInfo.contact.phone}
+                  <a
+                    href="tel:07035737296"
+                    className="text-white hover:text-gold-300 font-mono text-sm block transition-colors font-semibold"
+                  >
+                    07035737296
                   </a>
+                  <span className="text-xs text-slate-400">{companyInfo.contact.internationalPhone}</span>
                 </div>
               </div>
 
               <div className="flex items-start gap-3">
                 <Clock className="w-4 h-4 text-gold-400 flex-shrink-0 mt-0.5" />
                 <div>
-                  <span className="text-[10px] uppercase tracking-ultra text-gold-400 font-mono block mb-1">
+                  <span className="text-[10px] uppercase tracking-ultra text-gold-400 font-mono block mb-1 font-bold">
                     Operating Hours
                   </span>
                   <p className="text-slate-300 text-xs">{companyInfo.contact.hours}</p>
@@ -115,15 +150,15 @@ export default function ContactSection({ prefilledService }) {
             {/* Direct WhatsApp Quick Contact */}
             <div className="pt-6 border-t border-gold-500/30">
               <a
-                href={`https://wa.me/2348123456789?text=${encodeURIComponent(
-                  "Hello High Branding Innovations Ltd, I would like to inquire about your corporate branding and premium gifts services."
+                href={`https://wa.me/2347035737296?text=${encodeURIComponent(
+                  "Hello High Branding Innovations Ltd, I am contacting you from your website to request a corporate deal for branding & premium gifts."
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center gap-3 px-6 py-3.5 rounded-full bg-navy-800 hover:bg-navy-700 text-gold-300 border border-gold-500/50 transition-all text-xs uppercase tracking-ultra font-medium shadow-md"
+                className="w-full inline-flex items-center justify-center gap-3 px-6 py-3.5 rounded-full bg-navy-800 hover:bg-navy-700 text-gold-300 border border-gold-500/50 transition-all text-xs uppercase tracking-ultra font-bold shadow-md"
               >
                 <MessageCircle className="w-4 h-4 text-emerald-400" />
-                <span>Instant WhatsApp Inquiry</span>
+                <span>Chat on WhatsApp (07035737296)</span>
               </a>
             </div>
 
@@ -135,54 +170,69 @@ export default function ContactSection({ prefilledService }) {
               <div className="py-16 text-center space-y-4">
                 <CheckCircle2 className="w-10 h-10 text-gold-600 mx-auto" />
                 <h3 className="font-serif text-3xl text-navy-900">
-                  Inquiry Received
+                  Deal Request Initiated
                 </h3>
-                <p className="text-sm text-neutral-600 font-light max-w-sm mx-auto leading-relaxed">
-                  Thank you, <strong className="text-navy-900">{formData.name}</strong>. A corporate partner will review your brief for <strong className="text-navy-900">{formData.company || 'your organization'}</strong> and reach out shortly.
+                <p className="text-sm text-neutral-600 font-light max-w-md mx-auto leading-relaxed">
+                  Thank you, <strong className="text-navy-900">{formData.name}</strong>. Your inquiry has been routed directly to <strong className="text-navy-900">Info@, Elizabeth@, and Emmanuel@Hbranding.com</strong>.
                 </p>
-                <button
-                  onClick={() => setSubmitted(false)}
-                  className="mt-6 text-xs uppercase tracking-ultra font-medium text-gold-600 border-b border-gold-600 pb-1"
-                >
-                  Send another inquiry
-                </button>
+                <p className="text-xs text-neutral-500 font-light">
+                  If your email client didn't open automatically, you can also reach us directly via WhatsApp at <strong className="text-navy-900 font-mono">07035737296</strong>.
+                </p>
+                <div className="pt-4 flex items-center justify-center gap-4">
+                  <a
+                    href={`https://wa.me/2347035737296?text=${encodeURIComponent(
+                      `Hello, I submitted an inquiry for ${formData.company || formData.name}: ${formData.service}`
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-navy-gold px-6 py-2.5 rounded-full text-xs uppercase tracking-ultra font-bold flex items-center gap-2"
+                  >
+                    <span>Instant WhatsApp Follow-Up</span>
+                  </a>
+                  <button
+                    onClick={() => setSubmitted(false)}
+                    className="text-xs uppercase tracking-ultra font-medium text-gold-600 border-b border-gold-600 pb-1"
+                  >
+                    Submit another
+                  </button>
+                </div>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="pb-4 border-b border-gold-500/20">
                   <h3 className="font-serif text-2xl text-navy-900">
-                    Commission a Proposal
+                    Request a Deal & Proposal
                   </h3>
                   <p className="text-xs text-neutral-500 font-light mt-1">
-                    Please provide an overview of your organization's requirements.
+                    Directly sent to our executive directors at <span className="font-mono text-navy-900">Hbranding.com</span>.
                   </p>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-[11px] uppercase tracking-ultra text-navy-900 font-medium mb-2">
-                      Full Name *
+                      Your Full Name *
                     </label>
                     <input
                       type="text"
                       required
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      placeholder="e.g. Dr. Adebayo Adeleke"
+                      placeholder="e.g. Samuel Alaba"
                       className="w-full px-4 py-3 bg-paper-100 border border-neutral-200 text-neutral-900 text-sm focus:outline-none focus:border-gold-500 transition-colors"
                     />
                   </div>
 
                   <div>
                     <label className="block text-[11px] uppercase tracking-ultra text-navy-900 font-medium mb-2">
-                      Organization / Title *
+                      Organization / Company *
                     </label>
                     <input
                       type="text"
                       required
                       value={formData.company}
                       onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                      placeholder="e.g. Zenith Global Ventures"
+                      placeholder="e.g. Enterprise Ltd"
                       className="w-full px-4 py-3 bg-paper-100 border border-neutral-200 text-neutral-900 text-sm focus:outline-none focus:border-gold-500 transition-colors"
                     />
                   </div>
@@ -191,14 +241,14 @@ export default function ContactSection({ prefilledService }) {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-[11px] uppercase tracking-ultra text-navy-900 font-medium mb-2">
-                      Corporate Work Email *
+                      Work Email *
                     </label>
                     <input
                       type="email"
                       required
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      placeholder="executive@domain.com"
+                      placeholder="name@company.com"
                       className="w-full px-4 py-3 bg-paper-100 border border-neutral-200 text-neutral-900 text-sm focus:outline-none focus:border-gold-500 transition-colors"
                     />
                   </div>
@@ -212,7 +262,7 @@ export default function ContactSection({ prefilledService }) {
                       required
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      placeholder="+234 ..."
+                      placeholder="0703..."
                       className="w-full px-4 py-3 bg-paper-100 border border-neutral-200 text-neutral-900 text-sm focus:outline-none focus:border-gold-500 transition-colors"
                     />
                   </div>
@@ -220,7 +270,7 @@ export default function ContactSection({ prefilledService }) {
 
                 <div>
                   <label className="block text-[11px] uppercase tracking-ultra text-navy-900 font-medium mb-2">
-                    Primary Service Focus
+                    Primary Service / Gift Requirement
                   </label>
                   <select
                     value={formData.service}
@@ -228,31 +278,32 @@ export default function ContactSection({ prefilledService }) {
                     className="w-full px-4 py-3 bg-paper-100 border border-neutral-200 text-neutral-900 text-sm focus:outline-none focus:border-gold-500 transition-colors"
                   >
                     <option value="Brand Identity Design">Brand Identity Design</option>
-                    <option value="Premium Corporate Gifts">Premium Corporate Gifts</option>
-                    <option value="Bundled Brand + Gift Packages">Bundled Brand + Gift Packages</option>
+                    <option value="Premium Corporate Gifts">Premium Corporate Gifts (Hampers & VIP Boxes)</option>
+                    <option value="Bundled Brand + Gift Packages">Bundled Brand + Welcome Kits</option>
                     <option value="Event & Exhibition Branding">Event & Exhibition Branding</option>
+                    <option value="Custom Bespoke Gift Set">Custom Bespoke Corporate Gift Set</option>
                   </select>
                 </div>
 
                 <div>
                   <label className="block text-[11px] uppercase tracking-ultra text-navy-900 font-medium mb-2">
-                    Project Brief & Objectives
+                    Project Brief & Volume (e.g. 50 VIP boxes, AGM date, custom branding)
                   </label>
                   <textarea
                     rows={4}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    placeholder="Outline your timeline, estimated quantity of gift units, or rebrand scope..."
+                    placeholder="Outline estimated quantity of gift units, target delivery date, or branding requirements..."
                     className="w-full px-4 py-3 bg-paper-100 border border-neutral-200 text-neutral-900 text-sm focus:outline-none focus:border-gold-500 transition-colors"
                   ></textarea>
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full btn-navy-gold py-4 text-xs uppercase tracking-ultra font-medium flex items-center justify-center gap-2 shadow-lg"
+                  className="w-full btn-navy-gold py-4 text-xs uppercase tracking-ultra font-bold flex items-center justify-center gap-2 shadow-lg"
                 >
-                  <span>Submit Formal RFQ</span>
-                  <ArrowUpRight className="w-4 h-4 text-gold-400" />
+                  <Send className="w-4 h-4 text-gold-400" />
+                  <span>Send Deal Request to Hbranding Team</span>
                 </button>
               </form>
             )}
