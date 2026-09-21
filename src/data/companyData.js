@@ -1,4 +1,4 @@
-export const companyInfo = {
+﻿export const companyInfo = {
   name: "High Branding Innovations Ltd",
   shortName: "High Branding",
   tagline: "Where Identity Meets Impression",
@@ -21,7 +21,7 @@ export const companyInfo = {
     title: "Where Identity Meets Impression",
     subtitle: "A single trusted partner for strategic brand identity design and curated corporate gifts. Based in Surulere, Lagos.",
     image1: "/images/products/executive-black-tech-suite.jpg",
-    image2: "/images/products/gift-item-3.jpg",
+    image2: "/images/products/gift-item-21.jpg",
   },
   about: {
     lead: "High Branding Innovations Ltd is a branding and premium corporate gifts company based in Lagos, Nigeria, dedicated to helping businesses build brands that are both strategically sound and memorably expressed.",
@@ -62,14 +62,14 @@ export const companyInfo = {
       number: "01",
       title: "Brand Identity Design",
       subtitle: "Visual Strategy & Architecture",
-      desc: "Logo design, visual identity systems, brand guidelines, and brand strategy consulting.",
+      desc: "Logo design, visual identity systems, typography guidelines, and corporate brand positioning consulting.",
       bullets: [
         "Corporate Logo & Emblem Systems",
         "Visual Identity Systems & Typographic Rules",
         "Comprehensive Enterprise Brand Guidelines",
         "Brand Strategy & Positioning Consulting"
       ],
-      image: "/images/products/gift-item-11.jpg"
+      image: "/images/products/gift-item-23.jpg"
     },
     {
       id: "corporate-gifts",
@@ -97,7 +97,7 @@ export const companyInfo = {
         "Turnkey Brand Launch Hampers",
         "Custom Ribbon, Wax Seal & Gift Box Branding"
       ],
-      image: "/images/products/gift-item-4.jpg"
+      image: "/images/products/gift-item-21.jpg"
     },
     {
       id: "event-branding",
@@ -111,7 +111,7 @@ export const companyInfo = {
         "Keynote Speaker Commemorative Awards",
         "Full Event Gifting Logistics Management"
       ],
-      image: "/images/products/gift-item-5.jpg"
+      image: "/images/products/gift-item-24.jpg"
     }
   ],
   whyChooseUs: [
@@ -136,91 +136,266 @@ export const companyInfo = {
       desc: "Reliable turnaround built around real corporate event, AGM, and procurement timelines."
     }
   ],
+  carouselCategories: [
+    { id: "all", label: "All Gift Options (22)" },
+    { id: "vip", label: "VIP & C-Suite Hampers" },
+    { id: "onboarding", label: "Onboarding & Swag Kits" },
+    { id: "drinkware", label: "Smart Drinkware & Tech" },
+    { id: "lifestyle", label: "Executive Lifestyle & Eco" }
+  ],
   carouselItems: [
     {
-      id: "carousel-1",
-      title: "The Executive Tech & Leather Hamper",
-      category: "VIP Gifting Suite",
-      description: "Custom debossed leather journal with brass emblem, stainless steel thermal bottle, compact umbrella, power bank, and Bluetooth speaker in rigid presentation box.",
+      id: "gift-item-21",
+      filterGroup: "onboarding",
+      title: "The 'Welcome to the Team' Onboarding Hamper",
+      category: "New Hire Onboarding Suite",
+      description: "Rigid black unboxing box containing navy hardcover journal, matte slate blue thermal flask with carry ring, speckled ceramic mug with raw clay base, heather grey crewneck t-shirt, tan leather cardholder, corporate pen, and personalized welcome card.",
+      image: "/images/products/gift-item-21.jpg",
+      tag: "Best Seller"
+    },
+    {
+      id: "executive-black-tech-suite",
+      filterGroup: "vip",
+      title: "Executive Black VIP Tech & Leather Hamper",
+      category: "C-Suite Presentation Suite",
+      description: "Luxury matte black presentation box featuring stitched leather organizer diary with gold emblem clasp, stainless steel thermal flask, automatic folding umbrella, 10,000mAh digital power bank, portable wireless speaker, and metal executive pen.",
       image: "/images/products/executive-black-tech-suite.jpg",
       tag: "C-Suite Exclusive"
     },
     {
-      id: "carousel-2",
-      title: "Minimalist Cork & Matte Grey Set",
+      id: "gift-item-26",
+      filterGroup: "vip",
+      title: "The 'Sir Alex' Bespoke Monogram VIP Suite",
+      category: "Personalized Executive Gift",
+      description: "Customized executive set featuring laser-engraved gold-banded LED temperature flask, black leather portfolio diary with gold magnetic clasp, black & gold ballpoint pen, leather business card case, and gold keychain in precision die-cut foam.",
+      image: "/images/products/gift-item-26.jpg",
+      tag: "VIP Monogram"
+    },
+    {
+      id: "gift-item-1",
+      filterGroup: "lifestyle",
+      title: "Minimalist Cork & Slate Grey Executive Box",
       category: "Eco-Executive Suite",
-      description: "Cork-accented leather notebook with elastic ribbon, matching bamboo ballpoint pen, circular wood keychain, and matte finish temperature flask.",
+      description: "Hinged black gift box containing matte slate grey water bottle with silicone carry loop, matching notebook with natural cork header band, bamboo wooden ballpoint pen, and circular bamboo keychain ring.",
       image: "/images/products/gift-item-1.jpg",
-      tag: "Modern Corporate"
+      tag: "Eco-Minimalist"
     },
     {
-      id: "carousel-3",
-      title: "Bamboo Eco-Luxe Desk & Drinkware Collection",
-      category: "Natural Wood Collection",
-      description: "Natural grained bamboo thermal flask, matching ergonomic wireless mouse, customized flash drive, ballpoint pen, and dual coffee mugs.",
+      id: "gift-item-6",
+      filterGroup: "vip",
+      title: "Matte Black Obsidian Executive Suite",
+      category: "Monochrome Luxury",
+      description: "All-black executive desk and lifestyle suite featuring textured pebble leather notebook with strap, matte black ceramic mug, double-wall vacuum flask, wireless Bluetooth earbuds, black stainless link wristwatch, flash drive, and pen.",
+      image: "/images/products/gift-item-6.jpg",
+      tag: "Executive Monochrome"
+    },
+    {
+      id: "gift-item-12",
+      filterGroup: "vip",
+      title: "Royal Blue 6-in-1 Executive Hamper",
+      category: "Corporate Leadership Box",
+      description: "Signature royal blue corporate presentation box containing auto-open umbrella, smart LED temperature flask, blue leather notebook with metal clasp, mini Bluetooth speaker, slim power bank, metal pen, and USB drive.",
+      image: "/images/products/gift-item-12.jpg",
+      tag: "Turnkey Hamper"
+    },
+    {
+      id: "gift-item-20",
+      filterGroup: "vip",
+      title: "Curated Executive Gift Sets Showcase",
+      category: "Enterprise Gifting Showcase",
+      description: "Comprehensive display of bespoke executive gift boxes: Natural bamboo desk tech sets, royal blue drinkware boxes, pure white VIP sets, and all-black corporate hampers tied with gold satin presentation ribbon.",
+      image: "/images/products/gift-item-20.jpg",
+      tag: "Procurement Showcase"
+    },
+    {
+      id: "gift-item-18",
+      filterGroup: "lifestyle",
+      title: "Warm Taupe & Linen Executive Travel Suite",
+      category: "Neutral Lifestyle Luxe",
+      description: "Earth-toned luxury set with taupe matte vacuum bottle, linen-bound notebook, gold brass ballpoint pen, genuine leather card wallet, gold-accented watch, bamboo-lid coffee tumbler, tortoiseshell sunglasses, and canvas tote.",
+      image: "/images/products/gift-item-18.jpg",
+      tag: "Earthy Elegance"
+    },
+    {
+      id: "gift-item-24",
+      filterGroup: "onboarding",
+      title: "Navy & Natural Kraft Onboarding Swag Kit",
+      category: "Employee Swag & Welcome",
+      description: "Navy pique polo shirt, structured navy baseball cap, natural canvas tote with navy webbed straps, stainless bottle with bamboo cap, cork-bottom navy ceramic mug, kraft spiral notebook, bamboo wood power bank, and keychain.",
+      image: "/images/products/gift-item-24.jpg",
+      tag: "Employee Favorite"
+    },
+    {
+      id: "gift-item-19",
+      filterGroup: "vip",
+      title: "Slate Grey & Brushed Steel VIP Presentation Set",
+      category: "Corporate Hamper",
+      description: "Brushed stainless steel thermal flask, dark grey stitched leather journal with gold filigree medallion clasp, black automatic umbrella, silver mini speaker, 10,000mAh digital power bank, and silver executive pen.",
+      image: "/images/products/gift-item-19.jpg",
+      tag: "High-End Corporate"
+    },
+    {
+      id: "gift-item-10",
+      filterGroup: "drinkware",
+      title: "3-in-1 Thermal Flask & Sharing Cups Gift Set",
+      category: "Drinkware Gift Boxes",
+      description: "500ml double-wall stainless steel vacuum flask with pouring stopper, accompanied by 2 matching stainless steel handle cups in rigid gift packaging. Available in navy, sage green, blush, gunmetal, and black.",
+      image: "/images/products/gift-item-10.jpg",
+      tag: "Popular Corporate Gift"
+    },
+    {
+      id: "gift-item-22",
+      filterGroup: "onboarding",
+      title: "Corporate Swag & Welcome Unboxing Mailer",
+      category: "Team Celebration Box",
+      description: "Kraft unboxing mailer box packed with navy polo shirt, matte black cola-shaped water bottle, black ceramic mug, navy twill baseball cap, black bound notebook with pen, canvas tote bag, and potted desk succulent.",
+      image: "/images/products/gift-item-22.jpg",
+      tag: "Turnkey Welcome Box"
+    },
+    {
+      id: "gift-item-25",
+      filterGroup: "onboarding",
+      title: "Executive Travel, Tech & Commuter Swag Pack",
+      category: "Travel & Tech Suite",
+      description: "Heather grey executive laptop backpack, insulated navy lunch cooler, navy cap, matte navy bottle, white tumbler, cork-bottom mug, cognac leather notebook, power bank, Bluetooth speaker, and boxed pen & keychain.",
+      image: "/images/products/gift-item-25.jpg",
+      tag: "Full Commuter Pack"
+    },
+    {
+      id: "gift-item-3",
+      filterGroup: "lifestyle",
+      title: "Olive & Sage Green Executive Lifestyle Set",
+      category: "Executive Lifestyle",
+      description: "Sage green thermal bottle with wire-loop cap, heavy-duty olive canvas tote with reinforced black leather straps, dark grey baseball cap, camel leather notebook, and mini travel grooming accessories.",
       image: "/images/products/gift-item-3.jpg",
-      tag: "Eco-Luxe"
+      tag: "Modern Lifestyle"
     },
     {
-      id: "carousel-4",
-      title: "Bespoke Corporate Welcome Suite",
-      category: "Onboarding Launch Kit",
-      description: "Complete unboxing experience featuring customized notebooks, vacuum insulated bottles, leather business card cases, and precision metal writing sets.",
+      id: "gift-item-4",
+      filterGroup: "lifestyle",
+      title: "Chartreuse Lime & Gold Executive Collection",
+      category: "Creative Agency Suite",
+      description: "Vibrant chartreuse lime insulated bottle with fluted gold cap and corporate crest, mini black & gold bottle, charcoal canvas tote with debossed leather crest patch, olive cap, and notebook with silver pen.",
       image: "/images/products/gift-item-4.jpg",
-      tag: "Enterprise Launch"
+      tag: "Distinctive Colorway"
     },
     {
-      id: "carousel-5",
-      title: "Presidential Gift Hamper & Keepsake",
-      category: "Year-End Appreciation",
-      description: "Handcrafted rigid presentation packaging with satin ribbon pulls, customized electronic accessories, luxury notebooks, and engraved drinkware.",
+      id: "gift-item-5",
+      filterGroup: "lifestyle",
+      title: "Matte Black Corporate Fitness & Wellness Suite",
+      category: "Wellness & Sports Kit",
+      description: "Matte black sports flask with textured grip, plush lime green microfiber gym towels, dark UV sunglasses, black baseball cap, and water-resistant charcoal travel gym toiletry organizer.",
       image: "/images/products/gift-item-5.jpg",
-      tag: "Year-End AGM"
+      tag: "Wellness & Retreats"
     },
     {
-      id: "carousel-6",
-      title: "Monochrome Minimalist Gift Suites",
-      category: "Signature Series",
-      description: "Cohesive black, white, and royal blue gift suites tailored for high-stakes corporate conferences and VIP partner appreciation.",
+      id: "gift-item-8",
+      filterGroup: "drinkware",
+      title: "Smart LED Temperature Display Flasks (Pastel Palette)",
+      category: "Smart Drinkware",
+      description: "Intelligent vacuum insulated flasks with high-definition digital touch temperature sensor on lid. Available in baby blue, lavender purple, mint green, coral blush, and soft grey.",
+      image: "/images/products/gift-item-8.jpg",
+      tag: "Smart Tech"
+    },
+    {
+      id: "gift-item-11",
+      filterGroup: "drinkware",
+      title: "Executive Smart LED Temperature Flasks (Leather Series)",
+      category: "Executive Drinkware",
+      description: "Premium thermal flasks featuring digital touch LED cap and textured neck grip. Available in obsidian black, champagne nude/tan, crimson red, gunmetal, and slate grey.",
+      image: "/images/products/gift-item-11.jpg",
+      tag: "Luxury Drinkware"
+    },
+    {
+      id: "gift-item-14",
+      filterGroup: "drinkware",
+      title: "Custom Powder-Coated Bottles (10 Brand Pantones)",
+      category: "Custom Branded Drinkware",
+      description: "Double-wall stainless steel vacuum insulated bottles available in 10 vivid corporate pantones to perfectly match your enterprise brand identity guidelines.",
       image: "/images/products/gift-item-14.jpg",
-      tag: "Signature Series"
+      tag: "Brand Pantone Match"
+    },
+    {
+      id: "gift-item-23",
+      filterGroup: "lifestyle",
+      title: "Minimalist Pure White Corporate Identity Kit",
+      category: "Monochrome White Kit",
+      description: "Crisp white canvas tote bag, structured white cap, white ceramic mug with natural cork coasters, white stainless steel bottle with silver collar, and spiral notebook.",
+      image: "/images/products/gift-item-23.jpg",
+      tag: "Crisp White Minimal"
+    },
+    {
+      id: "gift-item-7",
+      filterGroup: "lifestyle",
+      title: "Midnight Navy & Crimson Desk Essentials Suite",
+      category: "Executive Stationery",
+      description: "Midnight navy leatherette journal with elastic closure, matching presentation box, navy executive pen with gold accents, and deep crimson red insulated mini flask.",
+      image: "/images/products/gift-item-7.jpg",
+      tag: "Classic Navy"
+    },
+    {
+      id: "gift-item-9",
+      filterGroup: "drinkware",
+      title: "Nordic Matte Powder-Coated Flask Trio",
+      category: "Nordic Minimalist",
+      description: "Ergonomic matte finish insulated bottles with flush matching screw lids in terracotta peach, slate blue, and charcoal black. Ideal for precision laser etching.",
+      image: "/images/products/gift-item-9.jpg",
+      tag: "Nordic Design"
     }
   ],
   portfolio: [
     {
-      title: "The Executive Black Tech & Leather Suite",
-      category: "Premium Corporate Gifts",
-      details: "Matte black rigid box featuring leather journal with gold emblem, thermal flask, wireless charger, and umbrella.",
+      title: "The Executive Black VIP Tech & Leather Suite",
+      category: "VIP Presentation Suite",
+      details: "Matte black rigid box featuring leather journal with gold emblem, thermal flask, wireless charger, umbrella, and speaker.",
       image: "/images/products/executive-black-tech-suite.jpg"
     },
     {
-      title: "Bamboo & Natural Grain Desk Collection",
-      category: "Eco-Luxury Corporate Gifts",
-      details: "Sustainably sourced bamboo thermal drinkware, wireless mouse, USB drive, and notebook set.",
-      image: "/images/products/gift-item-3.jpg"
+      title: "The 'Welcome to the Team' Onboarding Hamper",
+      category: "New Hire Onboarding Kit",
+      details: "Turnkey onboarding kit with navy journal, ceramic speckled mug, slate blue thermal bottle, grey tee, and leather cardholder.",
+      image: "/images/products/gift-item-21.jpg"
     },
     {
-      title: "Cork & Slate Grey Onboarding Box",
-      category: "Bundled Brand + Gift Packages",
-      details: "Turnkey employee welcome suite with cork-lined notebook, matte grey vacuum bottle, and bamboo ballpoint pen.",
+      title: "The 'Sir Alex' Bespoke Monogram VIP Suite",
+      category: "Personalized Executive Gift",
+      details: "Laser-engraved LED temperature flask, black stitched leather folio diary, metallic pen, and business card case in custom foam box.",
+      image: "/images/products/gift-item-26.jpg"
+    },
+    {
+      title: "Minimalist Cork & Slate Grey Executive Box",
+      category: "Eco-Corporate Collection",
+      details: "Hinged presentation unboxing box with cork-accented notebook, soft-touch slate grey water bottle, and bamboo ballpoint pen.",
       image: "/images/products/gift-item-1.jpg"
     },
     {
-      title: "Pan-African Summit VIP Delegate Package",
-      category: "Event & Exhibition Branding",
-      details: "Custom-branded conference materials, corporate drinkware, and precision metal accessories.",
-      image: "/images/products/gift-item-4.jpg"
+      title: "Navy & Natural Kraft Onboarding Swag Kit",
+      category: "Employee Swag & Welcome",
+      details: "Navy polo shirt, twill cap, canvas tote with navy straps, bamboo lid bottle, cork-bottom mug, and bamboo power bank.",
+      image: "/images/products/gift-item-24.jpg"
     },
     {
-      title: "Year-End Executive Appreciation Hamper",
-      category: "Premium Corporate Gifts",
-      details: "Laser-engraved executive accessories and custom presentation boxes with personalized corporate branding.",
-      image: "/images/products/gift-item-5.jpg"
+      title: "Royal Blue 6-in-1 Executive Hamper",
+      category: "Corporate Leadership Box",
+      details: "Royal blue presentation box with auto umbrella, LED flask, leather diary with metal buckle, power bank, and Bluetooth speaker.",
+      image: "/images/products/gift-item-12.jpg"
     },
     {
-      title: "Corporate Identity & Stationery Suite",
-      category: "Brand Identity Design",
-      details: "Custom visual systems, debossed leather notebooks, and executive corporate merchandise.",
+      title: "Corporate Swag & Welcome Unboxing Mailer",
+      category: "Team Celebration Box",
+      details: "Kraft unboxing mailer with navy polo, matte black cola bottle, ceramic mug, twill cap, notebook, and mini desk plant.",
+      image: "/images/products/gift-item-22.jpg"
+    },
+    {
+      title: "Warm Taupe & Linen Executive Travel Suite",
+      category: "Neutral Lifestyle Luxe",
+      details: "Taupe vacuum bottle, linen journal, brass pen, leather card wallet, gold-accented watch, sunglasses, and canvas tote.",
+      image: "/images/products/gift-item-18.jpg"
+    },
+    {
+      title: "Executive Smart LED Temperature Flasks",
+      category: "Executive Drinkware",
+      details: "Precision double-wall stainless steel flasks with touch LED temperature lids and textured leather neck grips.",
       image: "/images/products/gift-item-11.jpg"
     }
   ]
