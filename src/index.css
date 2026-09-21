@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  background-color: #FFFFFF;
+  color: #111111;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: -0.01em;
+}
+
+/* Luxury Gold & Navy Card Styling */
+.card-gold {
+  background-color: #FFFFFF;
+  border: 1px solid rgba(197, 160, 89, 0.3);
+  box-shadow: 0 4px 20px -2px rgba(11, 21, 40, 0.05);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-gold:hover {
+  border-color: #C5A059;
+  box-shadow: 0 12px 30px -4px rgba(197, 160, 89, 0.18), 0 4px 12px -2px rgba(11, 21, 40, 0.08);
+  transform: translateY(-2px);
+}
+
+.card-navy-accent {
+  background-color: #0B1528;
+  border: 1px solid rgba(197, 160, 89, 0.4);
+  box-shadow: 0 10px 30px -5px rgba(11, 21, 40, 0.3);
+}
+
+/* Subtle image hover zoom */
+.img-editorial {
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s ease;
+}
+
+.group:hover .img-editorial {
+  transform: scale(1.04);
+}
+
+/* Luxury Editorial Buttons */
+.btn-navy-gold {
+  background-color: #0B1528;
+  color: #FFFFFF;
+  border: 1px solid #C5A059;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-navy-gold:hover {
+  background-color: #162847;
+  color: #EFE0A7;
+  border-color: #D9B54A;
+  box-shadow: 0 4px 20px rgba(197, 160, 89, 0.25);
+  transform: translateY(-1px);
+}
+
+.btn-gold-outline {
+  background-color: #FFFFFF;
+  color: #0B1528;
+  border: 1px solid rgba(197, 160, 89, 0.6);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-gold-outline:hover {
+  border-color: #0B1528;
+  background-color: #FAFAF7;
+  color: #0B1528;
+}
+
+/* Gold Text Gradient for subtle accents */
+.text-gold-refined {
+  background: linear-gradient(135deg, #B08838 0%, #D9B54A 50%, #8F6A22 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Subtle minimal scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #FAFAF7;
+}
+::-webkit-scrollbar-thumb {
+  background: #C5A059;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9A7B38;
+}
