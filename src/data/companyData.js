@@ -1,4 +1,4 @@
-﻿export const companyInfo = {
+export const companyInfo = {
   name: "High Branding Innovations Ltd",
   shortName: "High Branding",
   tagline: "Where Identity Meets Impression",
@@ -7,11 +7,11 @@
   contact: {
     address: "57, Bode Thomas Street, Surulere, Lagos, Nigeria",
     emails: [
-      "Info@Hbranding.com",
-      "Elizabeth@Hbranding.com",
-      "Emmanuel@Hbranding.com"
+      "info@hbrandingltd.com",
+      "elizabeth@hbrandingltd.com",
+      "emmanuel@hbrandingltd.com"
     ],
-    primaryEmail: "Info@Hbranding.com",
+    primaryEmail: "info@hbrandingltd.com",
     phone: "07035737296",
     internationalPhone: "+234 703 573 7296",
     whatsapp: "+234 703 573 7296",

@@ -1,4 +1,4 @@
-﻿import React, { useRef } from 'react';
+import React, { useRef } from 'react';
 import { X, Printer, ExternalLink, Mail, Phone, MapPin, Sparkles, CheckCircle2 } from 'lucide-react';
 import { companyInfo } from '../data/companyData';
 
@@ -126,7 +126,7 @@ export default function BrochureModal({ isOpen, onClose }) {
               <p className="font-bold text-navy-900 uppercase tracking-wider text-sm">Official Company Profile & Catalog</p>
               <p>57, Bode Thomas Street, Surulere, Lagos</p>
               <p>Hotline / WhatsApp: 07035737296</p>
-              <p className="text-gold-700 font-medium">Info@Hbranding.com</p>
+              <p className="text-gold-700 font-medium">info@hbrandingltd.com</p>
             </div>
           </div>
 
@@ -311,9 +311,9 @@ export default function BrochureModal({ isOpen, onClose }) {
             </div>
             <div>
               <strong className="text-navy-900 block font-semibold mb-1 uppercase tracking-wider">Direct Corporate Emails</strong>
-              <p>Info@Hbranding.com</p>
-              <p>Elizabeth@Hbranding.com</p>
-              <p>Emmanuel@Hbranding.com</p>
+              <p>info@hbrandingltd.com</p>
+              <p>elizabeth@hbrandingltd.com</p>
+              <p>emmanuel@hbrandingltd.com</p>
             </div>
             <div>
               <strong className="text-navy-900 block font-semibold mb-1 uppercase tracking-wider">Hotline & WhatsApp</strong>

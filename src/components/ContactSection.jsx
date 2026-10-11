@@ -173,7 +173,7 @@ Corporate Office: 57, Bode Thomas Street, Surulere, Lagos`
                   Deal Request Initiated
                 </h3>
                 <p className="text-sm text-neutral-600 font-light max-w-md mx-auto leading-relaxed">
-                  Thank you, <strong className="text-navy-900">{formData.name}</strong>. Your inquiry has been routed directly to <strong className="text-navy-900">Info@, Elizabeth@, and Emmanuel@Hbranding.com</strong>.
+                  Thank you, <strong className="text-navy-900">{formData.name}</strong>. Your inquiry has been routed directly to <strong className="text-navy-900">info@, elizabeth@, and emmanuel@hbrandingltd.com</strong>.
                 </p>
                 <p className="text-xs text-neutral-500 font-light">
                   If your email client didn't open automatically, you can also reach us directly via WhatsApp at <strong className="text-navy-900 font-mono">07035737296</strong>.
@@ -204,7 +204,7 @@ Corporate Office: 57, Bode Thomas Street, Surulere, Lagos`
                     Request a Deal & Proposal
                   </h3>
                   <p className="text-xs text-neutral-500 font-light mt-1">
-                    Directly sent to our executive directors at <span className="font-mono text-navy-900">Hbranding.com</span>.
+                    Directly sent to our executive directors at <span className="font-mono text-navy-900">hbrandingltd.com</span>.
                   </p>
                 </div>
 

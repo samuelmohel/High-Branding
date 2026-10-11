@@ -64,7 +64,7 @@ High Branding Innovations Ltd
               Inquiry Dispatched
             </h3>
             <p className="text-xs text-neutral-600 font-light max-w-xs mx-auto leading-relaxed">
-              Dispatched directly to <strong className="text-navy-900">Info@, Elizabeth@, and Emmanuel@Hbranding.com</strong>.
+              Dispatched directly to <strong className="text-navy-900">info@, elizabeth@, and emmanuel@hbrandingltd.com</strong>.
             </p>
             <div className="pt-4 flex flex-col gap-2">
               <a
